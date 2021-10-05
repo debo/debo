@@ -1,8 +1,8 @@
 ### Hi there 👋 I'm Mark "[@debo](https://github.com/debo)" De Bortoli 
 
-- 👨‍💻 I'm an Enterprise Software Engineering Lead at Schroders
-- 🤔 I welcome help or donations/sponsors for [Phansible](https://phansible.com)
-- 😄 Pronouns: he/him or they/them
+- 🧑‍💻 I'm an Enterprise Software Engineering Lead at Schroders
+- 🙏 I welcome help or donations/sponsors for [Phansible](https://phansible.com)
+- 🏳️‍🌈 Pronouns: he/him or they/them
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
 
 ![Mark "debo" De Bortoli's GitHub Stats](https://github-readme-stats.vercel.app/api?username=debo&show_icons=true&theme=graywhite&count_private=true&include_all_commits=true)
