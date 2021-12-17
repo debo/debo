@@ -5,6 +5,14 @@
 - 🏳️‍🌈 Pronouns: he/him or they/them
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
 
+### :zap: Recent GitHub Activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+---
+### :zap: GitHub Statistics
+
 ![Mark "debo" De Bortoli's GitHub Stats](https://github-readme-stats.vercel.app/api?username=debo&show_icons=true&theme=graywhite&count_private=true&include_all_commits=true&theme=solarized-dark)
 
 <!--
