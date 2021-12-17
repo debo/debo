@@ -8,6 +8,11 @@
 ### :zap: Recent GitHub Activity
 
 <!--START_SECTION:activity-->
+1. 🗣 Commented on [#6](https://github.com/diggerhq/infragenie/issues/6) in [diggerhq/infragenie](https://github.com/diggerhq/infragenie)
+2. 💪 Opened PR [#6](https://github.com/diggerhq/infragenie/pull/6) in [diggerhq/infragenie](https://github.com/diggerhq/infragenie)
+3. 🎉 Merged PR [#3](https://github.com/phpenv/phpenv-installer/pull/3) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+4. 🗣 Commented on [#3](https://github.com/phpenv/phpenv-installer/issues/3) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+5. 🗣 Commented on [#104](https://github.com/phpenv/phpenv/issues/104) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
