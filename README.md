@@ -1,9 +1,10 @@
 ### Hi there, I am Mark De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm an Principal Engineer at [Codility][codility]
-- 🙏 I welcome help or donations/sponsors for [Phansible][phansible]
-- 🏳️‍🌈 Pronouns: he/him or they/them or debo
+- 🧑‍💻 I'm a Principal Engineer at [Codility][codility].
+- 🙏 I welcome help or donations/sponsors for [Phansible][phansible].
+- 🏳️‍🌈 Pronouns: he/him or they/them or debo.
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
+- 💬 Ask me about anything.
 - 😄 Fun facts: I can touch my nose with my tongue, I can solve a Rubik's cube in less that 2 minutes (usually) and I have a fairly reasonable and logic explanation of why domino's pizza is a good takeaway choice over Italian style. I almost forgot, I grew and dyed my beard hot pink in 2019 for the cancer research; if you don't believe it [go have a look][make-it-pink]  and if you can convince my wife maybe I can do it again.
 
 ---
