@@ -1,4 +1,4 @@
-name: gitHub-activity
+name: github-activity
 
 on:
   schedule:
