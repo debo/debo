@@ -1,13 +1,13 @@
-### Hi there 👋 I'm Mark "[@debo](https://github.com/debo)" De Bortoli
+### Hi there, I am Mark De Bortoli - aka Debo 👋
 
 - 🧑‍💻 I'm an Enterprise Software Engineering Lead at Schroders
-- 🙏 I welcome help or donations/sponsors for [Phansible](https://phansible.com)
-- 🏳️‍🌈 Pronouns: he/him or they/them
+- 🙏 I welcome help or donations/sponsors for [Phansible][phansible]
+- 🏳️‍🌈 Pronouns: he/him or they/them or debo
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
 
 ---
 
-### :zap: Recent GitHub Activity
+### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#6](https://github.com/diggerhq/infragenie/issues/6) in [diggerhq/infragenie](https://github.com/diggerhq/infragenie)
@@ -18,7 +18,7 @@
 <!--END_SECTION:activity-->
 
 ---
-### :zap: GitHub Statistics
+### ⚡ GitHub Statistics
 
 ![Mark "debo" De Bortoli's GitHub Stats](https://github-readme-stats.vercel.app/api?username=debo&show_icons=true&theme=dark&count_private=true&include_all_commits=true)
 
@@ -36,3 +36,5 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+[phansible]: https://phansible.com
