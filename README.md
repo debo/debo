@@ -1,9 +1,10 @@
 ### Hi there, I am Mark De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm an Enterprise Software Engineering Lead at Schroders
+- 🧑‍💻 I'm an Principal Engineer at [Codility][codility]
 - 🙏 I welcome help or donations/sponsors for [Phansible][phansible]
 - 🏳️‍🌈 Pronouns: he/him or they/them or debo
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
+- 😄 Fun facts: I can touch my nose with my tongue, I can solve a Rubik's cube in less that 2 minutes (usually) and I have a fairly reasonable and logic explanation of why domino's pizza is a good takeaway choice over Italian style. I almost forgot, I grew and dyed my beard hot pink in 2019 for the cancer research; if you don't believe it [go have a look][make-it-pink]  and if you can convince my wife maybe I can do it again.
 
 ---
 
@@ -37,5 +38,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+[codility]: https://www.codility.com
 [phansible]: https://phansible.com
+[make-it-pink]: https://fundraise.cancerresearchuk.org/page/makeitpink
 [linkedin]: https://www.linkedin.com/in/markdebortoli/
