@@ -5,6 +5,8 @@
 - 🏳️‍🌈 Pronouns: he/him or they/them
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
 
+---
+
 ### :zap: Recent GitHub Activity
 
 <!--START_SECTION:activity-->
