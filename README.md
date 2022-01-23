@@ -13,10 +13,10 @@
 
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#4](https://github.com/phpenv/phpenv-installer/issues/4) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-2. 🗣 Commented on [#107](https://github.com/phpenv/phpenv/issues/107) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+2. 🗣 Commented on [#4](https://github.com/phpenv/phpenv-installer/issues/4) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
 3. 🗣 Commented on [#107](https://github.com/phpenv/phpenv/issues/107) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 4. 🗣 Commented on [#107](https://github.com/phpenv/phpenv/issues/107) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 🗣 Commented on [#100](https://github.com/phpenv/phpenv/issues/100) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. 🗣 Commented on [#107](https://github.com/phpenv/phpenv/issues/107) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
