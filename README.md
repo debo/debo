@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#111](https://github.com/phpenv/phpenv/issues/111) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-2. 🗣 Commented on [#111](https://github.com/phpenv/phpenv/issues/111) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+1. 🎉 Merged PR [#327](https://github.com/phansible/phansible/pull/327) in [phansible/phansible](https://github.com/phansible/phansible)
+2. 🎉 Merged PR [#329](https://github.com/phansible/phansible/pull/329) in [phansible/phansible](https://github.com/phansible/phansible)
 3. 🗣 Commented on [#111](https://github.com/phpenv/phpenv/issues/111) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-4. 🗣 Commented on [#109](https://github.com/phpenv/phpenv/issues/109) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 🗣 Commented on [#6](https://github.com/phpenv/phpenv-installer/issues/6) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+4. 🗣 Commented on [#111](https://github.com/phpenv/phpenv/issues/111) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. 🗣 Commented on [#111](https://github.com/phpenv/phpenv/issues/111) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
