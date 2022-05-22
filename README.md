@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#1850](https://github.com/ajv-validator/ajv/issues/1850) in [ajv-validator/ajv](https://github.com/ajv-validator/ajv)
-2. 🎉 Merged PR [#331](https://github.com/phansible/phansible/pull/331) in [phansible/phansible](https://github.com/phansible/phansible)
-3. 🗣 Commented on [#10476](https://github.com/backstage/backstage/issues/10476) in [backstage/backstage](https://github.com/backstage/backstage)
-4. ❗️ Closed issue [#109](https://github.com/phpenv/phpenv/issues/109) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 🗣 Commented on [#109](https://github.com/phpenv/phpenv/issues/109) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+1. 🗣 Commented on [#114](https://github.com/phpenv/phpenv/issues/114) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+2. 🗣 Commented on [#7](https://github.com/phpenv/phpenv-installer/issues/7) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+3. 🗣 Commented on [#114](https://github.com/phpenv/phpenv/issues/114) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. 🗣 Commented on [#113](https://github.com/phpenv/phpenv/issues/113) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. 🗣 Commented on [#209](https://github.com/syndbg/goenv/issues/209) in [syndbg/goenv](https://github.com/syndbg/goenv)
 <!--END_SECTION:activity-->
 
 ---
