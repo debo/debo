@@ -13,10 +13,10 @@
 
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#114](https://github.com/phpenv/phpenv/issues/114) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-2. 🗣 Commented on [#7](https://github.com/phpenv/phpenv-installer/issues/7) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-3. 🗣 Commented on [#114](https://github.com/phpenv/phpenv/issues/114) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-4. 🗣 Commented on [#113](https://github.com/phpenv/phpenv/issues/113) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 🗣 Commented on [#209](https://github.com/syndbg/goenv/issues/209) in [syndbg/goenv](https://github.com/syndbg/goenv)
+2. 🗣 Commented on [#115](https://github.com/phpenv/phpenv/issues/115) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+3. 🎉 Merged PR [#332](https://github.com/phansible/phansible/pull/332) in [phansible/phansible](https://github.com/phansible/phansible)
+4. ❗️ Opened issue [#196](https://github.com/nodenv/nodenv/issues/196) in [nodenv/nodenv](https://github.com/nodenv/nodenv)
+5. 🗣 Commented on [#2379](https://github.com/pyenv/pyenv/issues/2379) in [pyenv/pyenv](https://github.com/pyenv/pyenv)
 <!--END_SECTION:activity-->
 
 ---
