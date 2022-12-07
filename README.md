@@ -1,6 +1,6 @@
 ### Hi there, I am Marco De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm a Head Of Engineering at [HeidiPay][heidi-pay].
+- 🧑‍💻 I'm the Head Of Engineering at [HeidiPay][heidi-pay].
 - 🙏 I welcome help or donations/sponsors for [Phansible][phansible].
 - 🏳️‍🌈 Pronouns: he/him or they/them or debo.
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
