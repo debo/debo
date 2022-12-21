@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#746](https://github.com/meshery/meshery.io/issues/746) in [meshery/meshery.io](https://github.com/meshery/meshery.io)
-2. 🎉 Merged PR [#333](https://github.com/phansible/phansible/pull/333) in [phansible/phansible](https://github.com/phansible/phansible)
-3. ❗️ Opened issue [#764](https://github.com/nodenv/node-build/issues/764) in [nodenv/node-build](https://github.com/nodenv/node-build)
-4. 🗣 Commented on [#114](https://github.com/phpenv/phpenv/issues/114) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 🗣 Commented on [#115](https://github.com/phpenv/phpenv/issues/115) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+1. 🗣 Commented on [#1260](https://github.com/phpbrew/phpbrew/issues/1260) in [phpbrew/phpbrew](https://github.com/phpbrew/phpbrew)
+2. ❗️ Closed issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+3. 🗣 Commented on [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+4. ❗️ Opened issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+5. 🗣 Commented on [#196](https://github.com/nodenv/nodenv/issues/196) in [nodenv/nodenv](https://github.com/nodenv/nodenv)
 <!--END_SECTION:activity-->
 
 ---
