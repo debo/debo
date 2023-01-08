@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#1260](https://github.com/phpbrew/phpbrew/issues/1260) in [phpbrew/phpbrew](https://github.com/phpbrew/phpbrew)
-2. ❗️ Closed issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
-3. 🗣 Commented on [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
-4. ❗️ Opened issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
-5. 🗣 Commented on [#196](https://github.com/nodenv/nodenv/issues/196) in [nodenv/nodenv](https://github.com/nodenv/nodenv)
+1. 🗣 Commented on [#220](https://github.com/jedisct1/libsodium-php/issues/220) in [jedisct1/libsodium-php](https://github.com/jedisct1/libsodium-php)
+2. 🗣 Commented on [#1260](https://github.com/phpbrew/phpbrew/issues/1260) in [phpbrew/phpbrew](https://github.com/phpbrew/phpbrew)
+3. ❗️ Closed issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+4. 🗣 Commented on [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+5. ❗️ Opened issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
 <!--END_SECTION:activity-->
 
 ---
