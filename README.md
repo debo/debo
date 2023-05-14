@@ -12,10 +12,10 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🎉 Merged PR [#342](https://github.com/phansible/phansible/pull/342) in [phansible/phansible](https://github.com/phansible/phansible)
-2. 🎉 Merged PR [#343](https://github.com/phansible/phansible/pull/343) in [phansible/phansible](https://github.com/phansible/phansible)
-3. 🗣 Commented on [#1159](https://github.com/pyenv/pyenv/issues/1159) in [pyenv/pyenv](https://github.com/pyenv/pyenv)
-4. ❗️ Closed issue [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+1. 🗣 Commented on [#126](https://github.com/phpenv/phpenv/issues/126) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+2. 🗣 Commented on [#125](https://github.com/phpenv/phpenv/issues/125) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+3. 🎉 Merged PR [#342](https://github.com/phansible/phansible/pull/342) in [phansible/phansible](https://github.com/phansible/phansible)
+4. 🎉 Merged PR [#343](https://github.com/phansible/phansible/pull/343) in [phansible/phansible](https://github.com/phansible/phansible)
 5. 🗣 Commented on [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
 <!--END_SECTION:activity-->
 
