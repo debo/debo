@@ -13,10 +13,10 @@
 
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#126](https://github.com/phpenv/phpenv/issues/126) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-2. 🗣 Commented on [#125](https://github.com/phpenv/phpenv/issues/125) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-3. 🎉 Merged PR [#342](https://github.com/phansible/phansible/pull/342) in [phansible/phansible](https://github.com/phansible/phansible)
-4. 🎉 Merged PR [#343](https://github.com/phansible/phansible/pull/343) in [phansible/phansible](https://github.com/phansible/phansible)
-5. 🗣 Commented on [#742](https://github.com/php-build/php-build/issues/742) in [php-build/php-build](https://github.com/php-build/php-build)
+2. 🗣 Commented on [#126](https://github.com/phpenv/phpenv/issues/126) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+3. 🗣 Commented on [#125](https://github.com/phpenv/phpenv/issues/125) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. 🎉 Merged PR [#342](https://github.com/phansible/phansible/pull/342) in [phansible/phansible](https://github.com/phansible/phansible)
+5. 🎉 Merged PR [#343](https://github.com/phansible/phansible/pull/343) in [phansible/phansible](https://github.com/phansible/phansible)
 <!--END_SECTION:activity-->
 
 ---
