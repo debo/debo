@@ -1,6 +1,6 @@
 ### Hi there, I am Marco De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm the Head Of Engineering at [HeidiPay][heidi-pay].
+- 🧑‍💻 I'm the Technology Director at [Build Circle][build-circle].
 - 🙏 I welcome help or donations/sponsors for [Phansible][phansible].
 - 🏳️‍🌈 Pronouns: he/him or they/them or debo.
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
@@ -22,7 +22,7 @@
 ---
 ### ⚡ GitHub Statistics
 
-![Mark "debo" De Bortoli's GitHub Stats](https://github-readme-stats.vercel.app/api?username=debo&show_icons=true&theme=github_dark&count_private=true&include_all_commits=true)
+![Marco "debo" De Bortoli's GitHub Stats](https://github-readme-stats.vercel.app/api?username=debo&show_icons=true&theme=github_dark&count_private=true&include_all_commits=true)
 
 <!--
 **debo/debo** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -39,7 +39,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-[heidi-pay]: https://www.heidipay.com
+[build-circle]: https://www.buildcircle.co.uk
 [phansible]: https://phansible.com
 [make-it-pink]: https://fundraise.cancerresearchuk.org/page/makeitpink
 [linkedin]: https://www.linkedin.com/in/markdebortoli/
