@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-2. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-3. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-4. 🗣 Commented on [#8](https://github.com/phpenv/phpenv-installer/issues/8) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-5. 🗣 Commented on [#126](https://github.com/phpenv/phpenv/issues/126) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+1. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9#issuecomment-1600982713) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+2. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9#issuecomment-1600943931) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+3. 🗣 Commented on [#9](https://github.com/phpenv/phpenv-installer/issues/9#issuecomment-1600833182) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+4. 🗣 Commented on [#8](https://github.com/phpenv/phpenv-installer/issues/8#issuecomment-1600826225) in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
+5. 🗣 Commented on [#126](https://github.com/phpenv/phpenv/issues/126#issuecomment-1563542007) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
