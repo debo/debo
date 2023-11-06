@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#1134](https://github.com/direnv/direnv/issues/1134#issuecomment-1647777989) in [direnv/direnv](https://github.com/direnv/direnv)
-2. 🗣 Commented on [#1134](https://github.com/direnv/direnv/issues/1134#issuecomment-1646176242) in [direnv/direnv](https://github.com/direnv/direnv)
-3. 🗣 Commented on [#1134](https://github.com/direnv/direnv/issues/1134#issuecomment-1645803387) in [direnv/direnv](https://github.com/direnv/direnv)
-4. 🗣 Commented on [#1134](https://github.com/direnv/direnv/issues/1134#issuecomment-1645747034) in [direnv/direnv](https://github.com/direnv/direnv)
-5. 🗣 Commented on [#1134](https://github.com/direnv/direnv/issues/1134#issuecomment-1645701523) in [direnv/direnv](https://github.com/direnv/direnv)
+1. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1780125980) in [docker/for-mac](https://github.com/docker/for-mac)
+2. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1778734879) in [docker/for-mac](https://github.com/docker/for-mac)
+3. 🎉 Merged PR [#2](https://github.com/stardust/stardust/pull/2) in [stardust/stardust](https://github.com/stardust/stardust)
+4. 💪 Opened PR [#2](https://github.com/stardust/stardust/pull/2) in [stardust/stardust](https://github.com/stardust/stardust)
+5. 🎉 Merged PR [#1](https://github.com/stardust/stardust/pull/1) in [stardust/stardust](https://github.com/stardust/stardust)
 <!--END_SECTION:activity-->
 
 ---
