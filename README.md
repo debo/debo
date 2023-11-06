@@ -1,6 +1,6 @@
 ### Hi there, I am Marco De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm the Technology Director at [Build Circle][build-circle].
+- 🧑‍💻 I'm a Technology Director at [Build Circle][build-circle].
 - 🙏 I welcome help or donations/sponsors for [Phansible][phansible].
 - 🏳️‍🌈 Pronouns: he/him or they/them or debo.
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺
