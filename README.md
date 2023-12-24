@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1780125980) in [docker/for-mac](https://github.com/docker/for-mac)
-2. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1778734879) in [docker/for-mac](https://github.com/docker/for-mac)
-3. 🎉 Merged PR [#2](https://github.com/stardust/stardust/pull/2) in [stardust/stardust](https://github.com/stardust/stardust)
-4. 💪 Opened PR [#2](https://github.com/stardust/stardust/pull/2) in [stardust/stardust](https://github.com/stardust/stardust)
-5. 🎉 Merged PR [#1](https://github.com/stardust/stardust/pull/1) in [stardust/stardust](https://github.com/stardust/stardust)
+1. 🗣 Commented on [#1459](https://github.com/copier-org/copier/issues/1459#issuecomment-1864806729) in [copier-org/copier](https://github.com/copier-org/copier)
+2. 🗣 Commented on [#1263](https://github.com/copier-org/copier/issues/1263#issuecomment-1863810476) in [copier-org/copier](https://github.com/copier-org/copier)
+3. 🗣 Commented on [#1120](https://github.com/copier-org/copier/issues/1120#issuecomment-1863784642) in [copier-org/copier](https://github.com/copier-org/copier)
+4. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1780125980) in [docker/for-mac](https://github.com/docker/for-mac)
+5. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1778734879) in [docker/for-mac](https://github.com/docker/for-mac)
 <!--END_SECTION:activity-->
 
 ---
