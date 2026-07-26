@@ -12,11 +12,12 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. ⬆️ Pushed commits to [debo/debo](https://github.com/debo/debo) (10 times)
-2. 🗣 Commented on [#77](https://github.com/phpenv/phpenv/issues/77#issuecomment-5084328497) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-3. 🔒 Pushed commits to a repo that would return `404` for you (12 times)
-4. 🗣 Commented on [#913](https://github.com/abiosoft/colima/issues/913#issuecomment-5011796290) in [abiosoft/colima](https://github.com/abiosoft/colima)
-5. 🗣 Commented on [#481](https://github.com/abiosoft/colima/issues/481#issuecomment-5011795900) in [abiosoft/colima](https://github.com/abiosoft/colima)
+1. ⬆️ Pushed 11 commits to [debo/debo](https://github.com/debo/debo)
+2. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+3. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. 🗣 Left 8 comments in [abiosoft/colima](https://github.com/abiosoft/colima)
+6. 🔒 30 contributions in private repos that would return `404` for you
 <!--END_SECTION:activity-->
 
 ---

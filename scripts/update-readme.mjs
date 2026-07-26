@@ -5,7 +5,8 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const USER = process.env.GH_USERNAME ?? "debo";
 const TOKEN = process.env.GITHUB_TOKEN;
-const MAX_LINES = 5;
+const MAX_LINES = 8;
+const ACTIVITY_DAYS = 14;
 const README = "README.md";
 const SVG = "metrics.svg";
 const START = "<!--START_SECTION:activity-->";
@@ -36,98 +37,69 @@ const graphql = async (query, variables) => {
 
 // ---- activity ------------------------------------------------------------
 
-const repoLink = (name) => `[${name}](https://github.com/${name})`;
+const link = (nameWithOwner, url) => `[${nameWithOwner}](${url})`;
+const plural = (n, s) => `${n} ${s}${n === 1 ? "" : "s"}`;
 
-// Private events are anonymized: no repo name, number, or link.
-function renderPrivate(e) {
-  const p = e.payload;
-  switch (e.type) {
-    case "PushEvent":
-      return "🔒 Pushed commits to a repo that would return `404` for you";
-    case "PullRequestEvent":
-      if (p.action === "opened") return "🔒 Opened a PR in a repo that would return `404` for you";
-      if (p.action === "closed" && p.pull_request.merged)
-        return "🔒 Merged a PR in a repo that would return `404` for you";
-      return null;
-    case "PullRequestReviewEvent":
-      return "🔒 Reviewed a PR in a repo that would return `404` for you";
-    case "IssuesEvent":
-      return p.action === "opened" ? "🔒 Opened an issue in a repo that would return `404` for you" : null;
-    case "IssueCommentEvent":
-      return "🔒 Commented on an issue in a repo that would return `404` for you";
-    case "ReleaseEvent":
-      return "🔒 Published a release in a repo that would return `404` for you";
-    default:
-      return null;
+// Public per-repo contribution counts, matching the profile's activity timeline.
+const CONTRIB_QUERY = `query($login: String!, $from: DateTime!) {
+  user(login: $login) {
+    contributionsCollection(from: $from) {
+      restrictedContributionsCount
+      commitContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner url isPrivate } contributions { totalCount }
+      }
+      pullRequestContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner url isPrivate } contributions { totalCount }
+      }
+      pullRequestReviewContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner url isPrivate } contributions { totalCount }
+      }
+      issueContributionsByRepository(maxRepositories: 100) {
+        repository { nameWithOwner url isPrivate } contributions { totalCount }
+      }
+    }
   }
-}
+}`;
 
-function renderEvent(e) {
-  const repo = repoLink(e.repo.name);
-  const p = e.payload;
-  switch (e.type) {
-    case "IssueCommentEvent":
-      return `🗣 Commented on [#${p.issue.number}](${p.comment.html_url}) in ${repo}`;
-    case "IssuesEvent":
-      return p.action === "opened"
-        ? `❗️ Opened issue [#${p.issue.number}](${p.issue.html_url}) in ${repo}`
-        : null;
-    case "PullRequestEvent":
-      if (p.action === "opened")
-        return `💪 Opened PR [#${p.pull_request.number}](${p.pull_request.html_url}) in ${repo}`;
-      if (p.action === "closed" && p.pull_request.merged)
-        return `🎉 Merged PR [#${p.pull_request.number}](${p.pull_request.html_url}) in ${repo}`;
-      return null;
-    case "ReleaseEvent":
-      return `🚀 Released [${p.release.tag_name}](${p.release.html_url}) in ${repo}`;
-    default:
-      return null;
+// Issue comments aren't "contributions", so they only exist in the events stream.
+function commentEntries(events) {
+  const byRepo = new Map();
+  for (const e of events) {
+    if (e.type !== "IssueCommentEvent" || e.public === false) continue;
+    byRepo.set(e.repo.name, (byRepo.get(e.repo.name) ?? 0) + 1);
   }
+  return [...byRepo].map(
+    ([name, n]) => `🗣 Left ${plural(n, "comment")} in ${link(name, `https://github.com/${name}`)}`
+  );
 }
 
 async function activityBlock() {
-  // /events includes private events when the token authenticates as USER.
-  const events = await gh(`/users/${USER}/events?per_page=100`);
+  const from = new Date(Date.now() - ACTIVITY_DAYS * 86400000).toISOString();
+  const [events, data] = await Promise.all([
+    gh(`/users/${USER}/events?per_page=100`),
+    graphql(CONTRIB_QUERY, { login: USER, from }),
+  ]);
+  const c = data.user.contributionsCollection;
+  const pub = (list) => list.filter((r) => !r.repository.isPrivate);
+  const entry = (verb, noun) => (r) =>
+    `${verb} ${plural(r.contributions.totalCount, noun)} in ${link(r.repository.nameWithOwner, r.repository.url)}`;
 
-  // Pushes are grouped per repo (public: linked, private: anonymized) with a count.
-  const privateKey = (e, msg) => `${e.repo.id} ${msg}`;
-  const privateCounts = new Map();
-  const pushCounts = new Map();
-  for (const e of events) {
-    if (e.type === "PushEvent" && e.public !== false) {
-      pushCounts.set(e.repo.id, (pushCounts.get(e.repo.id) ?? 0) + 1);
-    }
-    if (e.public === false) {
-      const msg = renderPrivate(e);
-      if (msg) privateCounts.set(privateKey(e, msg), (privateCounts.get(privateKey(e, msg)) ?? 0) + 1);
-    }
+  const entries = [
+    ...pub(c.commitContributionsByRepository).map(
+      (r) => `⬆️ Pushed ${plural(r.contributions.totalCount, "commit")} to ${link(r.repository.nameWithOwner, r.repository.url)}`
+    ),
+    ...pub(c.pullRequestContributionsByRepository).map(entry("💪 Opened", "PR")),
+    ...pub(c.pullRequestReviewContributionsByRepository).map(entry("👀 Reviewed", "PR")),
+    ...pub(c.issueContributionsByRepository).map(entry("❗️ Opened", "issue")),
+    ...commentEntries(events),
+  ];
+  if (c.restrictedContributionsCount > 0) {
+    entries.push(
+      `🔒 ${plural(c.restrictedContributionsCount, "contribution")} in private repos that would return \`404\` for you`
+    );
   }
-  const times = (n) => (n > 1 ? ` (${n} times)` : "");
 
-  const lines = [];
-  const seen = new Set();
-  for (const e of events) {
-    let line;
-    if (e.public === false) {
-      const msg = renderPrivate(e);
-      if (!msg) continue;
-      const key = privateKey(e, msg);
-      if (seen.has(key)) continue;
-      seen.add(key);
-      line = `${msg}${times(privateCounts.get(key))}`;
-    } else if (e.type === "PushEvent") {
-      const key = `push ${e.repo.id}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      line = `⬆️ Pushed commits to ${repoLink(e.repo.name)}${times(pushCounts.get(e.repo.id))}`;
-    } else {
-      line = renderEvent(e);
-      if (!line || seen.has(line)) continue;
-      seen.add(line);
-    }
-    lines.push(`${lines.length + 1}. ${line}`);
-    if (lines.length === MAX_LINES) break;
-  }
+  const lines = entries.slice(0, MAX_LINES).map((e, i) => `${i + 1}. ${e}`);
   return lines.length ? lines.join("\n") : "1. No recent activity";
 }
 
@@ -153,7 +125,8 @@ function calcRank({ commits, prs, issues, reviews, stars, followers }) {
       total;
   const THRESHOLDS = [1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100];
   const LEVELS = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C"];
-  return LEVELS[THRESHOLDS.findIndex((t) => score * 100 <= t)];
+  const percentile = score * 100;
+  return { level: LEVELS[THRESHOLDS.findIndex((t) => percentile <= t)], percentile };
 }
 
 async function stats() {
@@ -162,7 +135,6 @@ async function stats() {
       user(login: $login) {
         name
         followers { totalCount }
-        following { totalCount }
         contributionsCollection {
           totalCommitContributions
           totalPullRequestContributions
@@ -205,12 +177,12 @@ async function stats() {
   });
   return {
     name: u.name ?? USER,
+    rank,
     rows: [
-      ["Rank", rank],
       ["Total stars earned", stars],
+      ["Total commits", commits],
       ["Public repos", u.publicRepos.totalCount],
       ["Private repos", u.privateRepos.totalCount],
-      ["Following", u.following.totalCount],
     ],
   };
 }
@@ -221,28 +193,42 @@ const BORDER = "#30363d";
 const TEXT = "#c9d1d9";
 const VALUE = "#58a6ff";
 
-function renderSvg({ name, rows }) {
-  const W = 300;
-  const padX = 22;
-  const first = 40;
-  const step = 30;
-  const H = first + (rows.length - 1) * step + 24;
-  const items = rows
+function renderSvg({ name, rows, rank }) {
+  const W = 430;
+  const H = 180;
+  const padX = 24;
+  const valX = 250;
+  const first = 54;
+  const step = 34;
+  const rowsSvg = rows
     .map(([label, value], i) => {
       const y = first + i * step;
       return `  <text x="${padX}" y="${y}" class="l">${label}</text>
-  <text x="${W - padX}" y="${y}" class="v" text-anchor="end">${kfmt(value)}</text>`;
+  <text x="${valX}" y="${y}" class="v" text-anchor="end">${kfmt(value)}</text>`;
     })
     .join("\n");
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}'s GitHub statistics">
+
+  const cx = 350;
+  const cy = 88;
+  const r = 44;
+  const circ = 2 * Math.PI * r;
+  const filled = Math.max(0, (100 - rank.percentile) / 100) * circ;
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}'s GitHub statistics, rank ${rank.level}">
   <style>
     .bg { fill: ${BG}; stroke: ${BORDER}; }
     text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; }
     .l { fill: ${TEXT}; font-size: 14px; }
     .v { fill: ${VALUE}; font-size: 14px; font-weight: 700; }
+    .rank { fill: ${VALUE}; font-size: 30px; font-weight: 700; }
+    .rlabel { fill: ${TEXT}; font-size: 12px; }
   </style>
   <rect class="bg" x="0.5" y="0.5" rx="6" width="${W - 1}" height="${H - 1}"/>
-${items}
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${BORDER}" stroke-width="8"/>
+  <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${VALUE}" stroke-width="8" stroke-linecap="round" stroke-dasharray="${filled.toFixed(1)} ${circ.toFixed(1)}" transform="rotate(-90 ${cx} ${cy})"/>
+  <text x="${cx}" y="${cy + 10}" text-anchor="middle" class="rank">${rank.level}</text>
+  <text x="${cx}" y="${cy + r + 22}" text-anchor="middle" class="rlabel">Rank</text>
+${rowsSvg}
 </svg>
 `;
 }

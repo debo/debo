@@ -1,19 +1,23 @@
-<svg width="300" height="184" viewBox="0 0 300 184" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marco De Bortoli's GitHub statistics">
+<svg width="430" height="180" viewBox="0 0 430 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marco De Bortoli's GitHub statistics, rank C+">
   <style>
     .bg { fill: #0d1117; stroke: #30363d; }
     text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; }
     .l { fill: #c9d1d9; font-size: 14px; }
     .v { fill: #58a6ff; font-size: 14px; font-weight: 700; }
+    .rank { fill: #58a6ff; font-size: 30px; font-weight: 700; }
+    .rlabel { fill: #c9d1d9; font-size: 12px; }
   </style>
-  <rect class="bg" x="0.5" y="0.5" rx="6" width="299" height="183"/>
-  <text x="22" y="40" class="l">Rank</text>
-  <text x="278" y="40" class="v" text-anchor="end">C+</text>
-  <text x="22" y="70" class="l">Total stars earned</text>
-  <text x="278" y="70" class="v" text-anchor="end">5</text>
-  <text x="22" y="100" class="l">Public repos</text>
-  <text x="278" y="100" class="v" text-anchor="end">52</text>
-  <text x="22" y="130" class="l">Private repos</text>
-  <text x="278" y="130" class="v" text-anchor="end">14</text>
-  <text x="22" y="160" class="l">Following</text>
-  <text x="278" y="160" class="v" text-anchor="end">3</text>
+  <rect class="bg" x="0.5" y="0.5" rx="6" width="429" height="179"/>
+  <circle cx="350" cy="88" r="44" fill="none" stroke="#30363d" stroke-width="8"/>
+  <circle cx="350" cy="88" r="44" fill="none" stroke="#58a6ff" stroke-width="8" stroke-linecap="round" stroke-dasharray="67.7 276.5" transform="rotate(-90 350 88)"/>
+  <text x="350" y="98" text-anchor="middle" class="rank">C+</text>
+  <text x="350" y="154" text-anchor="middle" class="rlabel">Rank</text>
+  <text x="24" y="54" class="l">Total stars earned</text>
+  <text x="250" y="54" class="v" text-anchor="end">5</text>
+  <text x="24" y="88" class="l">Total commits</text>
+  <text x="250" y="88" class="v" text-anchor="end">1.3k</text>
+  <text x="24" y="122" class="l">Public repos</text>
+  <text x="250" y="122" class="v" text-anchor="end">52</text>
+  <text x="24" y="156" class="l">Private repos</text>
+  <text x="250" y="156" class="v" text-anchor="end">14</text>
 </svg>
