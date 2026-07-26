@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. 🗣 Commented on [#1459](https://github.com/copier-org/copier/issues/1459#issuecomment-1864806729) in [copier-org/copier](https://github.com/copier-org/copier)
-2. 🗣 Commented on [#1263](https://github.com/copier-org/copier/issues/1263#issuecomment-1863810476) in [copier-org/copier](https://github.com/copier-org/copier)
-3. 🗣 Commented on [#1120](https://github.com/copier-org/copier/issues/1120#issuecomment-1863784642) in [copier-org/copier](https://github.com/copier-org/copier)
-4. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1780125980) in [docker/for-mac](https://github.com/docker/for-mac)
-5. 🗣 Commented on [#7008](https://github.com/docker/for-mac/issues/7008#issuecomment-1778734879) in [docker/for-mac](https://github.com/docker/for-mac)
+1. 🗣 Commented on [#913](https://github.com/abiosoft/colima/issues/913#issuecomment-5011796290) in [abiosoft/colima](https://github.com/abiosoft/colima)
+2. 🗣 Commented on [#481](https://github.com/abiosoft/colima/issues/481#issuecomment-5011795900) in [abiosoft/colima](https://github.com/abiosoft/colima)
+3. 🗣 Commented on [#527](https://github.com/abiosoft/colima/issues/527#issuecomment-5011795822) in [abiosoft/colima](https://github.com/abiosoft/colima)
+4. 🗣 Commented on [#684](https://github.com/abiosoft/colima/issues/684#issuecomment-5011795763) in [abiosoft/colima](https://github.com/abiosoft/colima)
+5. 🗣 Commented on [#905](https://github.com/abiosoft/colima/issues/905#issuecomment-5011795577) in [abiosoft/colima](https://github.com/abiosoft/colima)
 <!--END_SECTION:activity-->
 
 ---
