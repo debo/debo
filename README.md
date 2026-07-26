@@ -1,6 +1,6 @@
 ### Hi there, I am Marco De Bortoli - aka Debo 👋
 
-- 🧑‍💻 I'm a Technology Director at [Build Circle][build-circle].
+- 🧑‍💻 I'm Technology Director at [Build Circle][build-circle].
 - 🙏 I welcome help or donations/sponsors for [Phansible][phansible].
 - 🏳️‍🌈 Pronouns: he/him or they/them or debo.
 - 🌍 I lived in 🇮🇹 🇩🇪 🇫🇮 🇬🇧 🇬🇮 🇦🇺 🇺🇦 🇷🇺 🇦🇪
@@ -12,11 +12,15 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. ⬆️ Pushed 13 commits to [debo/debo](https://github.com/debo/debo)
-2. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-3. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-4. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
-5. 🗣 Left 8 comments in [abiosoft/colima](https://github.com/abiosoft/colima)
+1. 🔒 Pushed 1 commit to a private repo that would return `404` for you
+2. ⬆️ Pushed 13 commits to [debo/debo](https://github.com/debo/debo)
+3. 🔒 Pushed 1 commit to a private repo that would return `404` for you
+4. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+6. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+7. 🔒 Pushed 17 commits to a private repo that would return `404` for you
+8. 🔒 Pushed 7 commits to a private repo that would return `404` for you
+9. 🗣 Left 8 comments in [abiosoft/colima](https://github.com/abiosoft/colima)
 <!--END_SECTION:activity-->
 
 ---

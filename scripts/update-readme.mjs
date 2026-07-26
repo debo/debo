@@ -5,7 +5,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const USER = process.env.GH_USERNAME ?? "debo";
 const TOKEN = process.env.GITHUB_TOKEN;
-const MAX_LINES = 5;
+const MAX_LINES = 10;
 const ACTIVITY_DAYS = 30;
 const README = "README.md";
 const SVG = "metrics.svg";
@@ -77,15 +77,44 @@ function commentEntries(events) {
   }));
 }
 
+// The contributions API won't itemize private repos, but the commits API will.
+// One anonymized line per private repo with recent commits (count + timing only).
+const PRIVATE_REPOS_QUERY = `query {
+  viewer {
+    repositories(first: 100, privacy: PRIVATE, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+      nodes { nameWithOwner pushedAt }
+    }
+  }
+}`;
+
+async function privateCommitEntries(from) {
+  const data = await graphql(PRIVATE_REPOS_QUERY, {});
+  const recent = data.viewer.repositories.nodes.filter((r) => r.pushedAt >= from);
+  const found = await Promise.all(
+    recent.map(async (r) => {
+      const commits = await gh(
+        `/repos/${r.nameWithOwner}/commits?author=${USER}&since=${from}&per_page=100`
+      ).catch(() => null);
+      if (!Array.isArray(commits) || commits.length === 0) return null;
+      return {
+        text: `🔒 Pushed ${plural(commits.length, "commit")} to a private repo that would return \`404\` for you`,
+        ts: Date.parse(commits[0].commit.committer.date),
+      };
+    })
+  );
+  return found.filter(Boolean);
+}
+
 async function activityBlock() {
   const from = new Date(Date.now() - ACTIVITY_DAYS * 86400000).toISOString();
-  const [events, data] = await Promise.all([
+  const [events, data, privates] = await Promise.all([
     gh(`/users/${USER}/events?per_page=100`),
     graphql(CONTRIB_QUERY, { login: USER, from }),
+    privateCommitEntries(from),
   ]);
   const c = data.user.contributionsCollection;
 
-  // Contributions have no per-item date, so approximate timing from the events stream.
+  // Public contributions have no per-item date, so approximate timing from the events stream.
   const lastSeen = new Map();
   let privateTs = 0;
   for (const e of events) {
@@ -110,8 +139,10 @@ async function activityBlock() {
     ...pub(c.pullRequestReviewContributionsByRepository).map(mk("👀 Reviewed", "PR")),
     ...pub(c.issueContributionsByRepository).map(mk("❗️ Opened", "issue")),
     ...commentEntries(events),
+    ...privates,
   ];
-  if (c.restrictedContributionsCount > 0) {
+  // Fallback: private activity that isn't per-repo commits (PRs, reviews) still gets a lumped line.
+  if (privates.length === 0 && c.restrictedContributionsCount > 0) {
     entries.push({
       text: `🔒 ${plural(c.restrictedContributionsCount, "contribution")} in private repos that would return \`404\` for you`,
       ts: privateTs,
