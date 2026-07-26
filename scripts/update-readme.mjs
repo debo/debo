@@ -77,8 +77,8 @@ function commentEntries(events) {
   }));
 }
 
-// The contributions API won't itemize private repos, but the commits API will.
-// One anonymized line per private repo with recent commits (count + timing only).
+// The contributions API won't itemize private repos, so hit each repo's REST endpoints
+// directly (commits, PRs, issues, comments) and surface anonymized counts + timing only.
 const PRIVATE_REPOS_QUERY = `query {
   viewer {
     repositories(first: 100, privacy: PRIVATE, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
@@ -87,22 +87,39 @@ const PRIVATE_REPOS_QUERY = `query {
   }
 }`;
 
-async function privateCommitEntries(from) {
+const PRIVATE = "a private repo that would return `404` for you";
+
+async function privateEntries(from) {
   const data = await graphql(PRIVATE_REPOS_QUERY, {});
   const recent = data.viewer.repositories.nodes.filter((r) => r.pushedAt >= from);
-  const found = await Promise.all(
+  const fromMs = Date.parse(from);
+  const perRepo = await Promise.all(
     recent.map(async (r) => {
-      const commits = await gh(
-        `/repos/${r.nameWithOwner}/commits?author=${USER}&since=${from}&per_page=100`
-      ).catch(() => null);
-      if (!Array.isArray(commits) || commits.length === 0) return null;
-      return {
-        text: `🔒 Pushed ${plural(commits.length, "commit")} to a private repo that would return \`404\` for you`,
-        ts: Date.parse(commits[0].commit.committer.date),
+      const base = `/repos/${r.nameWithOwner}`;
+      const [commits, issues, comments] = await Promise.all([
+        gh(`${base}/commits?author=${USER}&since=${from}&per_page=100`).catch(() => null),
+        gh(`${base}/issues?creator=${USER}&state=all&since=${from}&per_page=100`).catch(() => null),
+        gh(`${base}/issues/comments?since=${from}&per_page=100`).catch(() => null),
+      ]);
+      const out = [];
+      const add = (verb, noun, items, dateOf) => {
+        if (!items.length) return;
+        const ts = Math.max(...items.map((x) => Date.parse(dateOf(x))));
+        out.push({ text: `🔒 ${verb} ${plural(items.length, noun)} in ${PRIVATE}`, ts });
       };
+      if (Array.isArray(commits)) add("Pushed", "commit", commits, (x) => x.commit.committer.date);
+      if (Array.isArray(issues)) {
+        const opened = issues.filter((i) => Date.parse(i.created_at) >= fromMs);
+        add("Opened", "PR", opened.filter((i) => i.pull_request), (x) => x.created_at);
+        add("Opened", "issue", opened.filter((i) => !i.pull_request), (x) => x.created_at);
+      }
+      if (Array.isArray(comments)) {
+        add("Left", "comment", comments.filter((x) => x.user?.login === USER), (x) => x.created_at);
+      }
+      return out;
     })
   );
-  return found.filter(Boolean);
+  return perRepo.flat();
 }
 
 async function activityBlock() {
@@ -110,7 +127,7 @@ async function activityBlock() {
   const [events, data, privates] = await Promise.all([
     gh(`/users/${USER}/events?per_page=100`),
     graphql(CONTRIB_QUERY, { login: USER, from }),
-    privateCommitEntries(from),
+    privateEntries(from),
   ]);
   const c = data.user.contributionsCollection;
 
