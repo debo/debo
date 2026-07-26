@@ -172,6 +172,9 @@ async function stats() {
         publicRepos: repositories(privacy: PUBLIC, ownerAffiliations: OWNER) {
           totalCount
         }
+        privateRepos: repositories(privacy: PRIVATE, ownerAffiliations: OWNER) {
+          totalCount
+        }
         repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
           nodes { stargazerCount }
         }
@@ -206,7 +209,7 @@ async function stats() {
       ["Rank", rank],
       ["Total stars earned", stars],
       ["Public repos", u.publicRepos.totalCount],
-      ["Followers", u.followers.totalCount],
+      ["Private repos", u.privateRepos.totalCount],
       ["Following", u.following.totalCount],
     ],
   };
