@@ -9,7 +9,7 @@
   <text x="22" y="40" class="l">Total stars earned</text>
   <text x="278" y="40" class="v" text-anchor="end">5</text>
   <text x="22" y="70" class="l">Commits (last year)</text>
-  <text x="278" y="70" class="v" text-anchor="end">44</text>
+  <text x="278" y="70" class="v" text-anchor="end">46</text>
   <text x="22" y="100" class="l">Total PRs</text>
   <text x="278" y="100" class="v" text-anchor="end">7</text>
   <text x="22" y="130" class="l">Total issues</text>
