@@ -27,7 +27,9 @@ const graphql = async (query, variables) => {
     headers: { Authorization: `Bearer ${TOKEN}`, "Content-Type": "application/json" },
     body: JSON.stringify({ query, variables }),
   });
-  const json = await res.json();
+  const body = await res.text();
+  if (!res.ok) throw new Error(`graphql ${res.status}: ${body.slice(0, 300)}`);
+  const json = JSON.parse(body);
   if (json.errors) throw new Error(`graphql: ${JSON.stringify(json.errors)}`);
   return json.data;
 };
