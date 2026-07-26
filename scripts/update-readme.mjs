@@ -43,20 +43,20 @@ function renderPrivate(e) {
   const p = e.payload;
   switch (e.type) {
     case "IssueCommentEvent":
-      return "🔒 Commented on an issue in a repo that `404`s for you";
+      return "🔒 Commented on an issue in a repo that would return `404` for you";
     case "IssuesEvent":
-      return p.action === "opened" ? "🔒 Opened an issue in a repo that `404`s for you" : null;
+      return p.action === "opened" ? "🔒 Opened an issue in a repo that would return `404` for you" : null;
     case "PullRequestEvent":
-      if (p.action === "opened") return "🔒 Opened a PR in a repo that `404`s for you";
+      if (p.action === "opened") return "🔒 Opened a PR in a repo that would return `404` for you";
       if (p.action === "closed" && p.pull_request.merged)
-        return "🔒 Merged a PR in a repo that `404`s for you";
+        return "🔒 Merged a PR in a repo that would return `404` for you";
       return null;
     case "ReleaseEvent":
-      return "🔒 Published a release in a repo that `404`s for you";
+      return "🔒 Published a release in a repo that would return `404` for you";
     case "PushEvent":
-      return "🔒 Pushed commits to a repo that `404`s for you";
+      return "🔒 Pushed commits to a repo that would return `404` for you";
     case "PullRequestReviewEvent":
-      return "🔒 Reviewed a PR in a repo that `404`s for you";
+      return "🔒 Reviewed a PR in a repo that would return `404` for you";
     default:
       return null;
   }
