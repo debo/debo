@@ -12,11 +12,11 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. ⬆️ Pushed 12 commits to [debo/debo](https://github.com/debo/debo)
-2. 🔒 30 contributions in private repos that would return `404` for you
-3. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-4. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+1. ⬆️ Pushed 13 commits to [debo/debo](https://github.com/debo/debo)
+2. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+3. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+5. 🗣 Left 8 comments in [abiosoft/colima](https://github.com/abiosoft/colima)
 <!--END_SECTION:activity-->
 
 ---
