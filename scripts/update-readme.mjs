@@ -219,13 +219,27 @@ async function stats() {
         repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
           nodes { stargazerCount }
         }
+        organizations(first: 30) {
+          nodes {
+            repositories(first: 100) {
+              nodes { stargazerCount isFork viewerPermission }
+            }
+          }
+        }
       }
     }`,
     { login: USER }
   );
   const u = data.user;
   const c = u.contributionsCollection;
-  const stars = u.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0);
+
+  // Stars = repos I own + org repos I administer (my OSS projects live under orgs, not my account).
+  const ownedStars = u.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0);
+  const orgStars = u.organizations.nodes
+    .flatMap((o) => o.repositories.nodes)
+    .filter((r) => r.viewerPermission === "ADMIN" && !r.isFork)
+    .reduce((s, r) => s + r.stargazerCount, 0);
+  const stars = ownedStars + orgStars;
 
   // All-time authored commits (matches GRS include_all_commits); fall back to last year.
   let commits = c.totalCommitContributions;
