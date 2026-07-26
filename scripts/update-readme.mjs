@@ -38,32 +38,47 @@ const graphql = async (query, variables) => {
 
 const repoLink = (name) => `[${name}](https://github.com/${name})`;
 
-// Private events are anonymized: no repo name, number, or link.
-function renderPrivate(e) {
+// Private events are anonymized and grouped per repo, so we only tally them.
+const NOUNS = {
+  push: ["push", "pushes"],
+  pr: ["PR", "PRs"],
+  review: ["review", "reviews"],
+  issue: ["issue", "issues"],
+  comment: ["comment", "comments"],
+  release: ["release", "releases"],
+};
+const NOUN_ORDER = ["push", "pr", "review", "issue", "comment", "release"];
+
+function privateKey(e) {
   const p = e.payload;
   switch (e.type) {
-    case "IssueCommentEvent":
-      return "🔒 Commented on an issue in a repo that would return `404` for you";
-    case "IssuesEvent":
-      return p.action === "opened" ? "🔒 Opened an issue in a repo that would return `404` for you" : null;
-    case "PullRequestEvent":
-      if (p.action === "opened") return "🔒 Opened a PR in a repo that would return `404` for you";
-      if (p.action === "closed" && p.pull_request.merged)
-        return "🔒 Merged a PR in a repo that would return `404` for you";
-      return null;
-    case "ReleaseEvent":
-      return "🔒 Published a release in a repo that would return `404` for you";
     case "PushEvent":
-      return "🔒 Pushed commits to a repo that would return `404` for you";
+      return "push";
+    case "PullRequestEvent":
+      return p.action === "opened" || (p.action === "closed" && p.pull_request.merged) ? "pr" : null;
     case "PullRequestReviewEvent":
-      return "🔒 Reviewed a PR in a repo that would return `404` for you";
+      return "review";
+    case "IssuesEvent":
+      return p.action === "opened" ? "issue" : null;
+    case "IssueCommentEvent":
+      return "comment";
+    case "ReleaseEvent":
+      return "release";
     default:
       return null;
   }
 }
 
+function summarize(counts) {
+  const parts = NOUN_ORDER.filter((k) => counts[k]).map(
+    (k) => `${counts[k]} ${NOUNS[k][counts[k] === 1 ? 0 : 1]}`
+  );
+  if (!parts.length) return null;
+  if (parts.length === 1) return parts[0];
+  return `${parts.slice(0, -1).join(", ")} & ${parts.at(-1)}`;
+}
+
 function renderEvent(e) {
-  if (e.public === false) return renderPrivate(e);
   const repo = repoLink(e.repo.name);
   const p = e.payload;
   switch (e.type) {
@@ -89,12 +104,34 @@ function renderEvent(e) {
 async function activityBlock() {
   // /events includes private events when the token authenticates as USER.
   const events = await gh(`/users/${USER}/events?per_page=100`);
-  const lines = [];
-  const seen = new Set();
+
+  // Tally private activity per repo (repo id, kept opaque in the output).
+  const privateCounts = new Map();
   for (const e of events) {
-    const line = renderEvent(e);
-    if (!line || seen.has(line)) continue;
-    seen.add(line);
+    if (e.public !== false) continue;
+    const key = privateKey(e);
+    if (!key) continue;
+    const counts = privateCounts.get(e.repo.id) ?? {};
+    counts[key] = (counts[key] ?? 0) + 1;
+    privateCounts.set(e.repo.id, counts);
+  }
+
+  const lines = [];
+  const seenPublic = new Set();
+  const emittedRepo = new Set();
+  for (const e of events) {
+    let line;
+    if (e.public === false) {
+      if (emittedRepo.has(e.repo.id)) continue;
+      const summary = summarize(privateCounts.get(e.repo.id) ?? {});
+      if (!summary) continue;
+      emittedRepo.add(e.repo.id);
+      line = `🔒 ${summary} in a repo that would return \`404\` for you`;
+    } else {
+      line = renderEvent(e);
+      if (!line || seenPublic.has(line)) continue;
+      seenPublic.add(line);
+    }
     lines.push(`${lines.length + 1}. ${line}`);
     if (lines.length === MAX_LINES) break;
   }
