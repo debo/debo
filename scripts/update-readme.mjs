@@ -5,8 +5,8 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const USER = process.env.GH_USERNAME ?? "debo";
 const TOKEN = process.env.GITHUB_TOKEN;
-const MAX_LINES = 8;
-const ACTIVITY_DAYS = 14;
+const MAX_LINES = 5;
+const ACTIVITY_DAYS = 30;
 const README = "README.md";
 const SVG = "metrics.svg";
 const START = "<!--START_SECTION:activity-->";
@@ -66,11 +66,15 @@ function commentEntries(events) {
   const byRepo = new Map();
   for (const e of events) {
     if (e.type !== "IssueCommentEvent" || e.public === false) continue;
-    byRepo.set(e.repo.name, (byRepo.get(e.repo.name) ?? 0) + 1);
+    const cur = byRepo.get(e.repo.name) ?? { count: 0, ts: 0 };
+    cur.count += 1;
+    cur.ts = Math.max(cur.ts, Date.parse(e.created_at));
+    byRepo.set(e.repo.name, cur);
   }
-  return [...byRepo].map(
-    ([name, n]) => `🗣 Left ${plural(n, "comment")} in ${link(name, `https://github.com/${name}`)}`
-  );
+  return [...byRepo].map(([name, { count, ts }]) => ({
+    text: `🗣 Left ${plural(count, "comment")} in ${link(name, `https://github.com/${name}`)}`,
+    ts,
+  }));
 }
 
 async function activityBlock() {
@@ -80,26 +84,42 @@ async function activityBlock() {
     graphql(CONTRIB_QUERY, { login: USER, from }),
   ]);
   const c = data.user.contributionsCollection;
+
+  // Contributions have no per-item date, so approximate timing from the events stream.
+  const lastSeen = new Map();
+  let privateTs = 0;
+  for (const e of events) {
+    const t = Date.parse(e.created_at);
+    lastSeen.set(e.repo.name, Math.max(lastSeen.get(e.repo.name) ?? 0, t));
+    if (e.public === false) privateTs = Math.max(privateTs, t);
+  }
+  const tsOf = (nameWithOwner) => lastSeen.get(nameWithOwner) ?? 0;
+
   const pub = (list) => list.filter((r) => !r.repository.isPrivate);
-  const entry = (verb, noun) => (r) =>
-    `${verb} ${plural(r.contributions.totalCount, noun)} in ${link(r.repository.nameWithOwner, r.repository.url)}`;
+  const mk = (verb, noun) => (r) => ({
+    text: `${verb} ${plural(r.contributions.totalCount, noun)} in ${link(r.repository.nameWithOwner, r.repository.url)}`,
+    ts: tsOf(r.repository.nameWithOwner),
+  });
 
   const entries = [
-    ...pub(c.commitContributionsByRepository).map(
-      (r) => `⬆️ Pushed ${plural(r.contributions.totalCount, "commit")} to ${link(r.repository.nameWithOwner, r.repository.url)}`
-    ),
-    ...pub(c.pullRequestContributionsByRepository).map(entry("💪 Opened", "PR")),
-    ...pub(c.pullRequestReviewContributionsByRepository).map(entry("👀 Reviewed", "PR")),
-    ...pub(c.issueContributionsByRepository).map(entry("❗️ Opened", "issue")),
+    ...pub(c.commitContributionsByRepository).map((r) => ({
+      text: `⬆️ Pushed ${plural(r.contributions.totalCount, "commit")} to ${link(r.repository.nameWithOwner, r.repository.url)}`,
+      ts: tsOf(r.repository.nameWithOwner),
+    })),
+    ...pub(c.pullRequestContributionsByRepository).map(mk("💪 Opened", "PR")),
+    ...pub(c.pullRequestReviewContributionsByRepository).map(mk("👀 Reviewed", "PR")),
+    ...pub(c.issueContributionsByRepository).map(mk("❗️ Opened", "issue")),
     ...commentEntries(events),
   ];
   if (c.restrictedContributionsCount > 0) {
-    entries.push(
-      `🔒 ${plural(c.restrictedContributionsCount, "contribution")} in private repos that would return \`404\` for you`
-    );
+    entries.push({
+      text: `🔒 ${plural(c.restrictedContributionsCount, "contribution")} in private repos that would return \`404\` for you`,
+      ts: privateTs,
+    });
   }
 
-  const lines = entries.slice(0, MAX_LINES).map((e, i) => `${i + 1}. ${e}`);
+  entries.sort((a, b) => b.ts - a.ts);
+  const lines = entries.slice(0, MAX_LINES).map((e, i) => `${i + 1}. ${e.text}`);
   return lines.length ? lines.join("\n") : "1. No recent activity";
 }
 
@@ -135,6 +155,7 @@ async function stats() {
       user(login: $login) {
         name
         followers { totalCount }
+        pullRequests { totalCount }
         contributionsCollection {
           totalCommitContributions
           totalPullRequestContributions
@@ -181,6 +202,7 @@ async function stats() {
     rows: [
       ["Total stars earned", stars],
       ["Total commits", commits],
+      ["Total PRs", u.pullRequests.totalCount],
       ["Public repos", u.publicRepos.totalCount],
       ["Private repos", u.privateRepos.totalCount],
     ],
@@ -195,11 +217,11 @@ const VALUE = "#58a6ff";
 
 function renderSvg({ name, rows, rank }) {
   const W = 430;
-  const H = 180;
+  const H = 190;
   const padX = 24;
   const valX = 250;
-  const first = 54;
-  const step = 34;
+  const first = 38;
+  const step = 30;
   const rowsSvg = rows
     .map(([label, value], i) => {
       const y = first + i * step;
@@ -209,8 +231,8 @@ function renderSvg({ name, rows, rank }) {
     .join("\n");
 
   const cx = 350;
-  const cy = 88;
-  const r = 44;
+  const cy = 94;
+  const r = 42;
   const circ = 2 * Math.PI * r;
   const filled = Math.max(0, (100 - rank.percentile) / 100) * circ;
 
@@ -227,7 +249,7 @@ function renderSvg({ name, rows, rank }) {
   <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${BORDER}" stroke-width="8"/>
   <circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="${VALUE}" stroke-width="8" stroke-linecap="round" stroke-dasharray="${filled.toFixed(1)} ${circ.toFixed(1)}" transform="rotate(-90 ${cx} ${cy})"/>
   <text x="${cx}" y="${cy + 10}" text-anchor="middle" class="rank">${rank.level}</text>
-  <text x="${cx}" y="${cy + r + 22}" text-anchor="middle" class="rlabel">Rank</text>
+  <text x="${cx}" y="${cy + r + 18}" text-anchor="middle" class="rlabel">Rank</text>
 ${rowsSvg}
 </svg>
 `;
