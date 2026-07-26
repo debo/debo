@@ -1,15 +1,19 @@
-<svg width="300" height="124" viewBox="0 0 300 124" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marco De Bortoli's GitHub statistics">
+<svg width="300" height="184" viewBox="0 0 300 184" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Marco De Bortoli's GitHub statistics">
   <style>
     .bg { fill: #0d1117; stroke: #30363d; }
     text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; }
     .l { fill: #c9d1d9; font-size: 14px; }
     .v { fill: #58a6ff; font-size: 14px; font-weight: 700; }
   </style>
-  <rect class="bg" x="0.5" y="0.5" rx="6" width="299" height="123"/>
+  <rect class="bg" x="0.5" y="0.5" rx="6" width="299" height="183"/>
   <text x="22" y="40" class="l">Contributions (last year)</text>
-  <text x="278" y="40" class="v" text-anchor="end">55</text>
+  <text x="278" y="40" class="v" text-anchor="end">56</text>
   <text x="22" y="70" class="l">Total stars earned</text>
   <text x="278" y="70" class="v" text-anchor="end">5</text>
-  <text x="22" y="100" class="l">Followers</text>
-  <text x="278" y="100" class="v" text-anchor="end">47</text>
+  <text x="22" y="100" class="l">Public repos</text>
+  <text x="278" y="100" class="v" text-anchor="end">52</text>
+  <text x="22" y="130" class="l">Followers</text>
+  <text x="278" y="130" class="v" text-anchor="end">47</text>
+  <text x="22" y="160" class="l">Following</text>
+  <text x="278" y="160" class="v" text-anchor="end">3</text>
 </svg>
