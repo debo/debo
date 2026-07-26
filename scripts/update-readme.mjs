@@ -53,6 +53,10 @@ function renderPrivate(e) {
       return null;
     case "ReleaseEvent":
       return "🔒 Published a release in a repo that `404`s for you";
+    case "PushEvent":
+      return "🔒 Pushed commits to a repo that `404`s for you";
+    case "PullRequestReviewEvent":
+      return "🔒 Reviewed a PR in a repo that `404`s for you";
     default:
       return null;
   }
@@ -140,33 +144,30 @@ async function stats() {
 // github_dark palette
 const BG = "#0d1117";
 const BORDER = "#30363d";
-const TITLE = "#58a6ff";
 const TEXT = "#c9d1d9";
 const VALUE = "#58a6ff";
 
 function renderSvg({ name, rows }) {
-  const W = 340;
-  const top = 62;
-  const step = 28;
-  const H = top + rows.length * step - step + 34;
+  const W = 300;
+  const padX = 22;
+  const first = 40;
+  const step = 30;
+  const H = first + (rows.length - 1) * step + 24;
   const items = rows
     .map(([label, value], i) => {
-      const y = top + i * step;
-      return `  <text x="24" y="${y}" class="l">${label}</text>
-  <text x="${W - 24}" y="${y}" class="v" text-anchor="end">${kfmt(value)}</text>`;
+      const y = first + i * step;
+      return `  <text x="${padX}" y="${y}" class="l">${label}</text>
+  <text x="${W - padX}" y="${y}" class="v" text-anchor="end">${kfmt(value)}</text>`;
     })
     .join("\n");
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${name}'s GitHub statistics">
   <style>
     .bg { fill: ${BG}; stroke: ${BORDER}; }
     text { font-family: 'Segoe UI', Ubuntu, Helvetica, Arial, sans-serif; }
-    .t { fill: ${TITLE}; font-size: 16px; font-weight: 600; }
     .l { fill: ${TEXT}; font-size: 14px; }
     .v { fill: ${VALUE}; font-size: 14px; font-weight: 700; }
   </style>
   <rect class="bg" x="0.5" y="0.5" rx="6" width="${W - 1}" height="${H - 1}"/>
-  <text x="24" y="34" class="t">${name}'s GitHub Stats</text>
-  <line x1="24" y1="46" x2="${W - 24}" y2="46" stroke="${BORDER}"/>
 ${items}
 </svg>
 `;

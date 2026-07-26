@@ -13,10 +13,10 @@
 
 <!--START_SECTION:activity-->
 1. 🗣 Commented on [#77](https://github.com/phpenv/phpenv/issues/77#issuecomment-5084328497) in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-2. 🗣 Commented on [#913](https://github.com/abiosoft/colima/issues/913#issuecomment-5011796290) in [abiosoft/colima](https://github.com/abiosoft/colima)
-3. 🗣 Commented on [#481](https://github.com/abiosoft/colima/issues/481#issuecomment-5011795900) in [abiosoft/colima](https://github.com/abiosoft/colima)
-4. 🗣 Commented on [#527](https://github.com/abiosoft/colima/issues/527#issuecomment-5011795822) in [abiosoft/colima](https://github.com/abiosoft/colima)
-5. 🗣 Commented on [#684](https://github.com/abiosoft/colima/issues/684#issuecomment-5011795763) in [abiosoft/colima](https://github.com/abiosoft/colima)
+2. 🔒 Pushed commits to a repo that `404`s for you
+3. 🗣 Commented on [#913](https://github.com/abiosoft/colima/issues/913#issuecomment-5011796290) in [abiosoft/colima](https://github.com/abiosoft/colima)
+4. 🗣 Commented on [#481](https://github.com/abiosoft/colima/issues/481#issuecomment-5011795900) in [abiosoft/colima](https://github.com/abiosoft/colima)
+5. 🗣 Commented on [#527](https://github.com/abiosoft/colima/issues/527#issuecomment-5011795822) in [abiosoft/colima](https://github.com/abiosoft/colima)
 <!--END_SECTION:activity-->
 
 ---
