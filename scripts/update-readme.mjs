@@ -133,7 +133,28 @@ async function activityBlock() {
 
 // ---- stats card ----------------------------------------------------------
 
-const kfmt = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`);
+const kfmt = (n) => (typeof n === "string" ? n : n >= 1000 ? `${(n / 1000).toFixed(1)}k` : `${n}`);
+
+// github-readme-stats rank: weighted percentile -> letter grade (S, A+, ... C).
+const expCdf = (x) => 1 - 2 ** -x;
+const logNormalCdf = (x) => x / (1 + x);
+function calcRank({ commits, prs, issues, reviews, stars, followers }) {
+  const W = { commits: 2, prs: 3, issues: 1, reviews: 1, stars: 4, followers: 1 };
+  const M = { commits: 1000, prs: 50, issues: 25, reviews: 2, stars: 50, followers: 10 };
+  const total = Object.values(W).reduce((a, b) => a + b, 0);
+  const score =
+    1 -
+    (W.commits * expCdf(commits / M.commits) +
+      W.prs * expCdf(prs / M.prs) +
+      W.issues * expCdf(issues / M.issues) +
+      W.reviews * expCdf(reviews / M.reviews) +
+      W.stars * logNormalCdf(stars / M.stars) +
+      W.followers * logNormalCdf(followers / M.followers)) /
+      total;
+  const THRESHOLDS = [1, 12.5, 25, 37.5, 50, 62.5, 75, 87.5, 100];
+  const LEVELS = ["S", "A+", "A", "A-", "B+", "B", "B-", "C+", "C"];
+  return LEVELS[THRESHOLDS.findIndex((t) => score * 100 <= t)];
+}
 
 async function stats() {
   const data = await graphql(
@@ -143,7 +164,10 @@ async function stats() {
         followers { totalCount }
         following { totalCount }
         contributionsCollection {
-          contributionCalendar { totalContributions }
+          totalCommitContributions
+          totalPullRequestContributions
+          totalIssueContributions
+          totalPullRequestReviewContributions
         }
         publicRepos: repositories(privacy: PUBLIC, ownerAffiliations: OWNER) {
           totalCount
@@ -156,11 +180,30 @@ async function stats() {
     { login: USER }
   );
   const u = data.user;
+  const c = u.contributionsCollection;
   const stars = u.repositories.nodes.reduce((s, r) => s + r.stargazerCount, 0);
+
+  // All-time authored commits (matches GRS include_all_commits); fall back to last year.
+  let commits = c.totalCommitContributions;
+  try {
+    const search = await gh(`/search/commits?q=author:${USER}&per_page=1`);
+    if (typeof search.total_count === "number") commits = search.total_count;
+  } catch {
+    // search API unavailable (rate limit); keep the last-year figure
+  }
+
+  const rank = calcRank({
+    commits,
+    prs: c.totalPullRequestContributions,
+    issues: c.totalIssueContributions,
+    reviews: c.totalPullRequestReviewContributions,
+    stars,
+    followers: u.followers.totalCount,
+  });
   return {
     name: u.name ?? USER,
     rows: [
-      ["Contributions (last year)", u.contributionsCollection.contributionCalendar.totalContributions],
+      ["Rank", rank],
       ["Total stars earned", stars],
       ["Public repos", u.publicRepos.totalCount],
       ["Followers", u.followers.totalCount],
