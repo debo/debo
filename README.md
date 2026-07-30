@@ -12,15 +12,16 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. ⬆️ Pushed 16 commits to [debo/debo](https://github.com/debo/debo)
-2. 🔒 Pushed 20 commits in a private repo that would return `404` for you
-3. 🔒 Pushed 2 commits in a private repo that would return `404` for you
-4. 🔒 Pushed 1 commit in a private repo that would return `404` for you
+1. ⬆️ Pushed 2 commits to [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
+2. 💪 Opened 2 PRs in [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
+3. ⬆️ Pushed 3 commits to [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. 💪 Opened 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 5. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-6. 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-7. ⬆️ Pushed 1 commit to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
-8. 🔒 Pushed 7 commits in a private repo that would return `404` for you
-9. 🗣 Left 8 comments in [abiosoft/colima](https://github.com/abiosoft/colima)
+6. 💪 Opened 1 PR in [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
+7. ⬆️ Pushed 6 commits to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+8. 🔒 Pushed 21 commits in a private repo that would return `404` for you
+9. ⬆️ Pushed 16 commits to [debo/debo](https://github.com/debo/debo)
+10. 🔒 Pushed 2 commits in a private repo that would return `404` for you
 <!--END_SECTION:activity-->
 
 ---
