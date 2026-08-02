@@ -12,16 +12,16 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-1. ⬆️ Pushed 2 commits to [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
-2. 💪 Opened 2 PRs in [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
-3. ⬆️ Pushed 3 commits to [phpenv/phpenv](https://github.com/phpenv/phpenv)
-4. 💪 Opened 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-5. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-6. 💪 Opened 1 PR in [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
-7. ⬆️ Pushed 6 commits to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
-8. 🔒 Pushed 21 commits in a private repo that would return `404` for you
-9. ⬆️ Pushed 16 commits to [debo/debo](https://github.com/debo/debo)
-10. 🔒 Pushed 2 commits in a private repo that would return `404` for you
+1. ⬆️ Pushed 5 commits to [phpenv/phpenv](https://github.com/phpenv/phpenv)
+2. 💪 Opened 2 PRs in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+3. 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+4. 🗣 Left 2 comments in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+5. ⬆️ Pushed 7 commits to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
+6. ⬆️ Pushed 5 commits to [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
+7. 💪 Opened 2 PRs in [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
+8. 💪 Opened 1 PR in [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
+9. 🔒 Pushed 21 commits in a private repo that would return `404` for you
+10. ⬆️ Pushed 16 commits to [debo/debo](https://github.com/debo/debo)
 <!--END_SECTION:activity-->
 
 ---
