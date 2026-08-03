@@ -167,8 +167,8 @@ async function activityBlock() {
   }
 
   entries.sort((a, b) => b.ts - a.ts);
-  const lines = entries.slice(0, MAX_LINES).map((e, i) => `${i + 1}. ${e.text}`);
-  return lines.length ? lines.join("\n") : "1. No recent activity";
+  const lines = entries.slice(0, MAX_LINES).map((e) => `- ${e.text}`);
+  return lines.length ? lines.join("\n") : "- No recent activity";
 }
 
 // ---- stats card ----------------------------------------------------------
