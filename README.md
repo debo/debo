@@ -13,15 +13,9 @@
 
 <!--START_SECTION:activity-->
 - 🗣 Left 1 comment in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-- ⬆️ Pushed 17 commits to [debo/debo](https://github.com/debo/debo)
-- ⬆️ Pushed 3 commits to [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
-- 💪 Opened 1 PR in [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
-- ⬆️ Pushed 5 commits to [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 💪 Opened 2 PRs in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 🗣 Left 2 comments in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- ⬆️ Pushed 7 commits to [phpenv/phpenv.org](https://github.com/phpenv/phpenv.org)
-- ⬆️ Pushed 5 commits to [phpenv/homebrew-tap](https://github.com/phpenv/homebrew-tap)
+- ⬆️ Pushed 1 commit to [debo/debo](https://github.com/debo/debo)
+- ⬆️ Pushed 1 commit to [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
+- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
