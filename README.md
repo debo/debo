@@ -12,10 +12,7 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-- 🗣 Left 1 comment in [phpenv/phpenv-installer](https://github.com/phpenv/phpenv-installer)
-- ⬆️ Pushed 1 commit to [debo/debo](https://github.com/debo/debo)
-- ⬆️ Pushed 1 commit to [php-build/php-build.github.io](https://github.com/php-build/php-build.github.io)
-- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+- 🔒 Pushed 1 commit in a private repo that would return `404` for you
 <!--END_SECTION:activity-->
 
 ---
