@@ -12,7 +12,8 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-- 🔒 Pushed 1 commit in a private repo that would return `404` for you
+- 🔒 Pushed 2 commits in a private repo that would return `404` for you
+- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 <!--END_SECTION:activity-->
 
 ---
