@@ -6,7 +6,10 @@ import { readFile, writeFile } from "node:fs/promises";
 const USER = process.env.GH_USERNAME ?? "debo";
 const TOKEN = process.env.GITHUB_TOKEN;
 const MAX_LINES = 10;
-const ACTIVITY_DAYS = 30;
+// Widened until the list has something in it: 58 commits can drop out of a 30 day
+// window on the same day and leave the section looking like a dead account.
+const ACTIVITY_WINDOWS = [30, 90, 180, 365];
+const MIN_LINES = 5;
 const README = "README.md";
 const SVG = "metrics.svg";
 const START = "<!--START_SECTION:activity-->";
@@ -62,10 +65,11 @@ const CONTRIB_QUERY = `query($login: String!, $from: DateTime!) {
 }`;
 
 // Issue comments aren't "contributions", so they only exist in the events stream.
-function commentEntries(events) {
+function commentEntries(events, fromMs) {
   const byRepo = new Map();
   for (const e of events) {
     if (e.type !== "IssueCommentEvent" || e.public === false) continue;
+    if (Date.parse(e.created_at) < fromMs) continue;
     const cur = byRepo.get(e.repo.name) ?? { count: 0, ts: 0 };
     cur.count += 1;
     cur.ts = Math.max(cur.ts, Date.parse(e.created_at));
@@ -122,10 +126,9 @@ async function privateEntries(from) {
   return perRepo.flat();
 }
 
-async function activityBlock() {
-  const from = new Date(Date.now() - ACTIVITY_DAYS * 86400000).toISOString();
-  const [events, data, privates] = await Promise.all([
-    gh(`/users/${USER}/events?per_page=100`),
+async function entriesSince(days, events) {
+  const from = new Date(Date.now() - days * 86400000).toISOString();
+  const [data, privates] = await Promise.all([
     graphql(CONTRIB_QUERY, { login: USER, from }),
     privateEntries(from),
   ]);
@@ -155,7 +158,7 @@ async function activityBlock() {
     ...pub(c.pullRequestContributionsByRepository).map(mk("💪 Opened", "PR")),
     ...pub(c.pullRequestReviewContributionsByRepository).map(mk("👀 Reviewed", "PR")),
     ...pub(c.issueContributionsByRepository).map(mk("❗️ Opened", "issue")),
-    ...commentEntries(events),
+    ...commentEntries(events, Date.parse(from)),
     ...privates,
   ];
   // Fallback: private activity that isn't per-repo commits (PRs, reviews) still gets a lumped line.
@@ -166,9 +169,23 @@ async function activityBlock() {
     });
   }
 
+  return entries;
+}
+
+async function activityBlock() {
+  const events = await gh(`/users/${USER}/events?per_page=100`);
+  let entries = [];
+  let days = ACTIVITY_WINDOWS[0];
+  for (const w of ACTIVITY_WINDOWS) {
+    days = w;
+    entries = await entriesSince(w, events);
+    if (entries.length >= MIN_LINES) break;
+  }
   entries.sort((a, b) => b.ts - a.ts);
   const lines = entries.slice(0, MAX_LINES).map((e) => `- ${e.text}`);
-  return lines.length ? lines.join("\n") : "- No recent activity";
+  if (!lines.length) return "- Nothing to report.";
+  lines.push("", `<sub>Last ${days} days.</sub>`);
+  return lines.join("\n");
 }
 
 // ---- stats card ----------------------------------------------------------
