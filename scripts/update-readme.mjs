@@ -85,7 +85,14 @@ function commentEntries(events, fromMs) {
 // directly (commits, PRs, issues, comments) and surface anonymized counts + timing only.
 const PRIVATE_REPOS_QUERY = `query {
   viewer {
-    repositories(first: 100, privacy: PRIVATE, affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]) {
+    # ownerAffiliations defaults to [OWNER, COLLABORATOR], which drops every repo an
+    # organisation owns. Without it this query only ever returned personal repos.
+    repositories(
+      first: 100
+      privacy: PRIVATE
+      affiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
+      ownerAffiliations: [OWNER, COLLABORATOR, ORGANIZATION_MEMBER]
+    ) {
       nodes { nameWithOwner pushedAt }
     }
   }
