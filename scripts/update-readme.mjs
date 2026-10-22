@@ -247,7 +247,7 @@ async function stats() {
         organizations(first: 30) {
           nodes {
             repositories(first: 100) {
-              nodes { stargazerCount isFork viewerPermission }
+              nodes { stargazerCount isFork isPrivate viewerPermission }
             }
           }
         }
@@ -265,6 +265,13 @@ async function stats() {
     .filter((r) => r.viewerPermission === "ADMIN" && !r.isFork)
     .reduce((s, r) => s + r.stargazerCount, 0);
   const stars = ownedStars + orgStars;
+
+  // Repo counts follow the same rule as the stars: mine, plus the org repos I administer.
+  const adminOrgRepos = u.organizations.nodes
+    .flatMap((o) => o.repositories.nodes)
+    .filter((r) => r.viewerPermission === "ADMIN" && !r.isFork);
+  const orgPublic = adminOrgRepos.filter((r) => !r.isPrivate).length;
+  const orgPrivate = adminOrgRepos.filter((r) => r.isPrivate).length;
 
   // All-time authored commits (matches GRS include_all_commits); fall back to last year.
   let commits = c.totalCommitContributions;
@@ -290,8 +297,8 @@ async function stats() {
       ["Total stars earned", stars],
       ["Total commits", commits],
       ["Total PRs", u.pullRequests.totalCount],
-      ["Public repos", u.publicRepos.totalCount],
-      ["Private repos", u.privateRepos.totalCount],
+      ["Public repos", u.publicRepos.totalCount + orgPublic],
+      ["Private repos", u.privateRepos.totalCount + orgPrivate],
     ],
   };
 }
