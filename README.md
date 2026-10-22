@@ -12,18 +12,16 @@
 ### ⚡ Recent GitHub Activity
 
 <!--START_SECTION:activity-->
-- 🔒 Pushed 49 commits in a private repo that would return `404` for you
-- ⬆️ Pushed 20 commits to [debo/debo](https://github.com/debo/debo)
-- 🔒 Pushed 24 commits in a private repo that would return `404` for you
-- ⬆️ Pushed 5 commits to [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 💪 Opened 2 PRs in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 👀 Reviewed 1 PR in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-- 🔒 Pushed 58 commits in a private repo that would return `404` for you
+- ⬆️ Pushed 10 commits to [phansible/phansible](https://github.com/phansible/phansible)
+- 💪 Opened 5 PRs in [phansible/phansible](https://github.com/phansible/phansible)
+- 🗣 Left 2 comments in [phansible/phansible](https://github.com/phansible/phansible)
+- 🔒 Opened 1 PR in a private repo that would return `404` for you
+- 🔒 Pushed 65 commits in a private repo that would return `404` for you
+- ⬆️ Pushed 3 commits to [debo/debo](https://github.com/debo/debo)
 - 🔒 Pushed 2 commits in a private repo that would return `404` for you
-- 🔒 Pushed 1 commit in a private repo that would return `404` for you
+- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
 
-<sub>Last 90 days.</sub>
+<sub>Last 30 days.</sub>
 <!--END_SECTION:activity-->
 
 ---
