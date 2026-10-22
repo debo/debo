@@ -9,9 +9,9 @@
 
 ---
 
-### ⚡ Recent GitHub Activity
-
 <!--START_SECTION:activity-->
+### ⚡ Recent GitHub Activity (Last 30 Days)
+
 - ⬆️ Pushed 10 commits to [phansible/phansible](https://github.com/phansible/phansible)
 - 💪 Opened 5 PRs in [phansible/phansible](https://github.com/phansible/phansible)
 - 🗣 Left 2 comments in [phansible/phansible](https://github.com/phansible/phansible)
@@ -20,8 +20,6 @@
 - ⬆️ Pushed 3 commits to [debo/debo](https://github.com/debo/debo)
 - 🔒 Pushed 2 commits in a private repo that would return `404` for you
 - 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
-
-<sub>Last 30 days.</sub>
 <!--END_SECTION:activity-->
 
 ---

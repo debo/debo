@@ -190,9 +190,10 @@ async function activityBlock() {
   }
   entries.sort((a, b) => b.ts - a.ts);
   const lines = entries.slice(0, MAX_LINES).map((e) => `- ${e.text}`);
-  if (!lines.length) return "- Nothing to report.";
-  lines.push("", `<sub>Last ${days} days.</sub>`);
-  return lines.join("\n");
+  // The heading is inside the markers so the window can be stated in it.
+  const heading = `### \u26a1 Recent GitHub Activity (Last ${days} Days)`;
+  if (!lines.length) return `${heading}\n\n- Nothing to report.`;
+  return [heading, "", ...lines].join("\n");
 }
 
 // ---- stats card ----------------------------------------------------------
