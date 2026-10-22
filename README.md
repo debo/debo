@@ -12,14 +12,16 @@
 <!--START_SECTION:activity-->
 ### ⚡ Recent GitHub Activity (Last 30 Days)
 
-- ⬆️ Pushed 10 commits to [phansible/phansible](https://github.com/phansible/phansible)
-- 💪 Opened 5 PRs in [phansible/phansible](https://github.com/phansible/phansible)
-- 🗣 Left 2 comments in [phansible/phansible](https://github.com/phansible/phansible)
-- 🔒 Opened 1 PR in a private repo that would return `404` for you
-- 🔒 Pushed 65 commits in a private repo that would return `404` for you
-- ⬆️ Pushed 3 commits to [debo/debo](https://github.com/debo/debo)
-- 🔒 Pushed 2 commits in a private repo that would return `404` for you
-- 🗣 Left 1 comment in [phpenv/phpenv](https://github.com/phpenv/phpenv)
+- 💪 Opened 1 PR in [phansible/role-zookeeper](https://github.com/phansible/role-zookeeper)
+- 💪 Opened 1 PR in [phansible/role-sqlite](https://github.com/phansible/role-sqlite)
+- 💪 Opened 1 PR in [phansible/role-solr](https://github.com/phansible/role-solr)
+- 💪 Opened 1 PR in [phansible/role-server](https://github.com/phansible/role-server)
+- 💪 Opened 1 PR in [phansible/role-redis](https://github.com/phansible/role-redis)
+- 💪 Opened 1 PR in [phansible/role-rabbitmq](https://github.com/phansible/role-rabbitmq)
+- 💪 Opened 1 PR in [phansible/role-postgresql](https://github.com/phansible/role-postgresql)
+- 💪 Opened 1 PR in [phansible/role-php-xdebug](https://github.com/phansible/role-php-xdebug)
+- 💪 Opened 1 PR in [phansible/role-php](https://github.com/phansible/role-php)
+- 💪 Opened 1 PR in [phansible/role-nginx](https://github.com/phansible/role-nginx)
 <!--END_SECTION:activity-->
 
 ---
